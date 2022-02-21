@@ -1,17 +1,23 @@
-const uint8_t pinoLED = 2; // Pino digital 2
-const int delayLED = 1000; // Tempo que o LED estará ligado ou desligado(em ms)
+/*
+ * Pisca-pisca(Blink) com um LED
+ */
+
+const uint8_t pinoLED = 13; // pino de saída digital que o led está conectado
 
 void setup() {
-  // put your setup code here, to run once:
-  
-  pinMode(pinoLED, OUTPUT); // Define a porta do LED como saída digital
+  pinMode(pinoLED, OUTPUT); // declare o led como o output
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-
-  digitalWrite(pinoLED, HIGH); // Liga o LED
-  delay(delayLED);             // Espera delayLED milissegundos
-  digitalWrite(pinoLED, LOW);  // Desliga o LED
-  delay(delayLED);             // Espera delayLED milissegundos
+  digitalWrite(pinoLED, HIGH);  // liga o led
+  delay(1000);                  // espera 100 milisegundos
+  digitalWrite(pinoLED, LOW);   // desliga o led
+  delay(1000);                  // espera 100 milisegundos
+  
+  /* while(1) { //entra num loop de while 1.
+  //Como 1 nunca muda, o programa nunca sai desse loop
+  //não faça nada aqui
+  }
+  //o programa está preso no while(1)
+  //então nunca chegará a este ponto */
 }
