@@ -2,10 +2,10 @@
 
 ### Requisitos:
 *   Arduino IDE
-*   O sensor de temperatura NTC depende da biblioteca **NTC_Thermistor by Yurii Salimov (Version 2.0.3)**
 
 ### Circuitos:
 *   Piscando um LED externo
+*   Piscando dois LEDs alternadamente (Versão simples e complexa)
 *   Sensor ultrassônico HCSR04
 *   Sensor de luminosidade LDR
 *   Sensor de temperatura NTC
