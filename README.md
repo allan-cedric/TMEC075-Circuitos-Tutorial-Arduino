@@ -6,8 +6,8 @@
 ### Circuitos:
 - [x] Piscando um LED externo
 - [x] Piscando dois LEDs alternadamente (Versão simples e complexa)
-- [] Sensor ultrassônico HCSR04
+- [ ] Sensor ultrassônico HCSR04
 - [x] Sensor de luminosidade LDR
 - [x] Sensor de temperatura NTC
 - [x] Sensor de movimento PIR
-- [] Usando um servo motor
+- [ ] Usando um servo motor
