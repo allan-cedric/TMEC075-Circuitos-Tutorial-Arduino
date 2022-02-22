@@ -1,5 +1,5 @@
 /*
- * Teste de sensor de luminosidade LDR
+ * Teste de leitura do sensor de luminosidade LDR
  */
 
 const uint8_t ledPin = 7;   // inicia o LED no pino digital 7
