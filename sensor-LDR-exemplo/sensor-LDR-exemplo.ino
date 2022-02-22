@@ -1,27 +1,28 @@
-const uint8_t pinoLED = 2;  // Pino digital 2
-const uint8_t pinoLDR = A0; // Pino analógico A0
+/*
+ * Teste de sensor de luminosidade LDR
+ */
+
+const uint8_t ledPin = 7;   // inicia o LED no pino digital 7
+const uint8_t ldrPin = A0;  // inicia o LDR no pino analógico A0
+
+int ldrVal = 0; // inicia variável de valor lido do LDR
 
 void setup() {
-  // put your setup code here, to run once:
-
-  Serial.begin(9600);       // Inicializa o monitor serial
-
-  pinMode(pinoLED, OUTPUT); // Define a porta do LED como saída digital
-  pinMode(pinoLDR, INPUT);  // Define a porta do LDR como entrada analógica
+  pinMode(ledPin,OUTPUT); // define a saída do LED
+  pinMode(ldrPin,INPUT);  // define o sensor como entrada
+  Serial.begin(9600);     // inicia a comunicação serial
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-
-  int valorLDR = analogRead(pinoLDR); // Lê o sensor LDR
-
-  if(valorLDR <= 150)           
-    digitalWrite(pinoLED, HIGH); // Liga o LED
-  else
-    digitalWrite(pinoLED, LOW);  // Desliga o LED
-
-  // Imprime no monitor serial o valor lido pelo LDR
-  Serial.print("Valor LDR: ");
-  Serial.println(valorLDR);
+  // loop para ler o valor do LDR
+  ldrVal = analogRead(ldrPin); // repare! Usamos analogRead!
+  
+  // o valor lido será entre 0 e 1023 -> limite do sensor
+  // se o valor lido for maior que 950, liga o led -> valor configurável(threshold)
+  if (ldrVal>= 950) digitalWrite(ledPin,HIGH);
+  else digitalWrite(ledPin,LOW);
+  
+  // imprime o valor lido do LDR no monitor serial
+  Serial.println(ldrVal);
   delay(100);
 }
