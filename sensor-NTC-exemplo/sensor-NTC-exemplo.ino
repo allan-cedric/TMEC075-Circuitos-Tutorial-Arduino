@@ -1,30 +1,26 @@
-// NTC_Thermistor by Yurii Salimov (Version 2.0.3)
+/*
+ * Teste de leitura do sensor de temperatura NTC
+ * 
+ * REQUISITOS: Biblioteca Thermistor -> http://storage.ning.com/topology/rest/1.0/file/get/1798908730?profile=original
+ * Passos: Sketch -> Incluir Biblioteca -> Adicionar biblioteca .ZIP
+ */
 
-#include <Thermistor.h>
-#include <NTC_Thermistor.h>
+#include <Thermistor.h> // inclusão da biblioteca Thermistor.h
 
-const uint8_t pinoTermistor = A1; // Pino analógico A0
-const int resExterna = 10000;     // Resistor externo
-const int resNominal = 10000;     // Resistência nominal do termistor
-const int tempNominal = 25;       // Temperatura nominal do termistor
-const int valorBeta = 4100;       // Valor beta do termistor (Relação entre resistência e temperatura)
-
-// Instância de um termistor
-NTC_Thermistor termistor(pinoTermistor, resExterna, resNominal, tempNominal, valorBeta); 
+Thermistor temp(A0);  // criação de variável do tipo Thermistor
+                      // inicia ela no pino analógico A0
 
 void setup() {
-  // put your setup code here, to run once:
-
-  Serial.begin(9600);
+  Serial.begin(9600); // inicializando a porta serial
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-
-  double temperaturaCelsius = termistor.readCelsius(); // Leitura do termistor
-
-  Serial.print("Temperatura: ");
-  Serial.print(temperaturaCelsius);
-  Serial.println("°C");
-  delay(100);
+  int temperature = temp.getTemp(); // leitura do valor de temperatura com
+                                    // função da biblioteca Thermistor
+                                    // valores padrão para NTC 10kohm
+  
+  Serial.print("Temperatura: ");  // imprime um texto no monitor serial
+  Serial.print(temperature);      // imprime o valor da temperatura lido
+  Serial.println("*C");
+  delay(1000);                    //Intervalo de medição
 }
