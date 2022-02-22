@@ -1,22 +1,31 @@
-const uint8_t pinoLED = 2; // Pino digital 2
-const uint8_t pinoPIR = 3; // Pino digital 3
+/*
+ * Teste simples de leitura do sensor de movimento PIR
+ */
+
+const uint8_t pirPin = 2;  // pino de entrada do sensor
+const uint8_t ledPin = 12; // pino de saída do LED
+
+uint8_t state = LOW;  // sem movimento como default
+uint8_t val = 0;      // variável auxiliar
 
 void setup() {
-  // put your setup code here, to run once:
-
-  pinMode(pinoLED, OUTPUT); // Define a porta do LED como saída digital
-  pinMode(pinoPIR, INPUT);  // Define a porta do PIR como entrada digital
+  pinMode(ledPin, OUTPUT);  // inicializa o LED como uma saída
+  pinMode(pirPin, INPUT);   // inicializa o sensor como uma entrada
+  Serial.begin(9600);       // inicializa a serial
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
+void loop(){
+  val = digitalRead(pirPin); // leitura do sinal do sensor
+  //delay(1000);
   
-  if(digitalRead(pinoPIR) == HIGH) // Sensor PIR detectou algo ?
-  {
-    digitalWrite(pinoLED, HIGH);   // Então liga o LED
-    delay(8000);                   // Espera por uma nova leitura do sensor
+  if (val != state){ // se o sinal do sensor é diferente do guardado
+    // tem movimento!
+    digitalWrite(ledPin, HIGH); // liga o LED
+    delay(500);
+  }else{ // se não, não tem movimento!
+    digitalWrite(ledPin, LOW); // desliga o LED
   }
-  else
-    digitalWrite(pinoLED, LOW);    // Senão desliga o LED
-   
+  
+  state = val;  // atualiza a variável de estado para detectar
+                // o próximo movimento.
 }
