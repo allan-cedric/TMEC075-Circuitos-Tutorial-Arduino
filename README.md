@@ -4,10 +4,10 @@
 *   Arduino IDE
 
 ### Circuitos:
-*   Piscando um LED externo
-*   Piscando dois LEDs alternadamente (Versão simples e complexa)
-*   Sensor ultrassônico HCSR04
-*   Sensor de luminosidade LDR
-*   Sensor de temperatura NTC
-*   Sensor de movimento PIR
-*   Usando um servo motor
+- [x] Piscando um LED externo
+- [x] Piscando dois LEDs alternadamente (Versão simples e complexa)
+- [] Sensor ultrassônico HCSR04
+- [x] Sensor de luminosidade LDR
+- [x] Sensor de temperatura NTC
+- [x] Sensor de movimento PIR
+- [] Usando um servo motor
