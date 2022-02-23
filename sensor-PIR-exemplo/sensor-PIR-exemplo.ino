@@ -3,7 +3,7 @@
  */
 
 const uint8_t pirPin = 2;  // pino de entrada do sensor
-const uint8_t ledPin = 12; // pino de saída do LED
+const uint8_t ledPin = 11; // pino de saída do LED
 
 uint8_t state = LOW;  // sem movimento como default
 uint8_t val = 0;      // variável auxiliar

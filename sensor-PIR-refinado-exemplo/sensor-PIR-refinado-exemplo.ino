@@ -15,7 +15,7 @@ long unsigned int pause = 5000; // 5 segundos
 boolean lockLow = true;
 boolean takeLowTime;
 int pirPin = 2; // pino do PIR
-int RELAY = 12; // pino do LED
+int RELAY = 11; // pino do LED
 
 /////////////////////////////
 //SETUP
