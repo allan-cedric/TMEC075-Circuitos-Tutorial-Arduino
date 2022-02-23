@@ -1,12 +1,9 @@
 /*
- * Teste de leitura do sensor ultrassônico HC-SR04
+ * Teste de leitura do sensor ultrassônico HC-SR04 com LED
  * 
  * REQUISITOS: Biblioteca Ultrasonic -> https://github.com/filipeflop/Ultrasonic
  * Passos: Baixar o ZIP(Aba Code) -> Sketch -> Incluir Biblioteca -> Adicionar biblioteca .ZIP
  */
-
-//Programa: Conectando Sensor Ultrassonico HC-SR04 ao Arduino
-//Autor: FILIPEFLOP
 
 //Carrega a biblioteca do sensor ultrassonico
 #include <Ultrasonic.h>
@@ -18,8 +15,12 @@
 //Inicializa o sensor nos pinos definidos acima
 Ultrasonic ultrasonic(pino_trigger, pino_echo);
 
+//Inicializa o pino em que o LED está conectado
+int led = 12;
+
 void setup()
 {
+  pinMode(led, OUTPUT); //Inicializa o LED como saída
   Serial.begin(9600);
   Serial.println("Lendo dados do sensor...");
 }
@@ -38,4 +39,11 @@ void loop()
   Serial.print(" - Distancia em polegadas: ");
   Serial.println(inMsec);
   delay(1000);
+  
+  if (cmMsec <= 10){ //Se a distância medida for menor que 10cm
+    digitalWrite(led, HIGH); //Liga o LED
+    delay(200); //Espera 200ms
+  }else{ //Se a medida for maior que 10cm
+    digitalWrite(led, LOW); //Desliga o LED
+  }
 }
