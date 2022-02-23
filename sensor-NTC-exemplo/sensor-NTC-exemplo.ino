@@ -7,7 +7,7 @@
 
 #include <Thermistor.h> // inclusão da biblioteca Thermistor.h
 
-Thermistor temp(A0);  // criação de variável do tipo Thermistor
+Thermistor temp(A1);  // criação de variável do tipo Thermistor
                       // inicia ela no pino analógico A0
 
 void setup() {

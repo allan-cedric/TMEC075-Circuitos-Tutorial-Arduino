@@ -16,7 +16,7 @@
 Ultrasonic ultrasonic(pino_trigger, pino_echo);
 
 //Inicializa o pino em que o LED está conectado
-int led = 12;
+int led = 9;
 
 void setup()
 {
@@ -38,7 +38,7 @@ void loop()
   Serial.print(cmMsec);
   Serial.print(" - Distancia em polegadas: ");
   Serial.println(inMsec);
-  delay(1000);
+  delay(100);
   
   if (cmMsec <= 10){ //Se a distância medida for menor que 10cm
     digitalWrite(led, HIGH); //Liga o LED

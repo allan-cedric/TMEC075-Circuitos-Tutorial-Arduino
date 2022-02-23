@@ -37,5 +37,5 @@ void loop()
   Serial.print(cmMsec);
   Serial.print(" - Distancia em polegadas: ");
   Serial.println(inMsec);
-  delay(1000);
+  delay(100);
 }
