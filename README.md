@@ -9,5 +9,5 @@
 - [x] Sensor ultrassônico HCSR04 (Versão sem LED e com LED)
 - [x] Sensor de luminosidade LDR
 - [x] Sensor de temperatura NTC
-- [x] Sensor de movimento PIR
+- [x] Sensor de movimento PIR (Versão simples e refinada)
 - [x] Usando um servomotor
