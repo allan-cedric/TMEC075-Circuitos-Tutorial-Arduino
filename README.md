@@ -10,4 +10,4 @@
 - [x] Sensor de luminosidade LDR
 - [x] Sensor de temperatura NTC
 - [x] Sensor de movimento PIR
-- [x] Usando um servo motor
+- [x] Usando um servomotor
