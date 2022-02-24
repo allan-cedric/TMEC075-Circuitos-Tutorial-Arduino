@@ -10,4 +10,5 @@
 - [x] Sensor de luminosidade LDR
 - [x] Sensor de temperatura NTC
 - [x] Sensor de movimento PIR (Versão simples e refinada)
+- [x] Sensor de linha TCRT5000
 - [x] Usando um servomotor
