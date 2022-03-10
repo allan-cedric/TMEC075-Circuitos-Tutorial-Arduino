@@ -10,34 +10,35 @@ void setup() {
   servoFrente.attach(servoPinoFrente);
   servoDir.attach(servoPinoDir);
 
-  servoFrente.write(180);
-  servoDir.write(40);
+  servoFrente.write(170);
+  servoDir.write(90);
+//  while(1);
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  for(int i = 40; i <= 100; i++)
+  for(int i = 60; i <= 100; i++)
   {
     servoDir.write(i);
     delay(10);
   }
   delay(200);
   
-  for(int i = 180; i >= 100; i--)
+  for(int i = 170; i >= 120; i--)
   {
     servoFrente.write(i);
     delay(10);
   }
   delay(200);
 
-  for(int i = 100; i <= 180; i++)
+  for(int i = 120; i <= 170; i++)
   {
     servoFrente.write(i);
     delay(10);
   }
   delay(200);
 
-  for(int i = 100; i >= 40; i--)
+  for(int i = 100; i >= 60; i--)
   {
     servoDir.write(i);
     delay(10);
