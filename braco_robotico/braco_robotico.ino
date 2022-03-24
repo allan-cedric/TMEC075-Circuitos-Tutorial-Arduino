@@ -1,6 +1,6 @@
 #include <Servo.h>
 
-int tolerancia = 10;
+int tolerancia = 20;
 
 const uint8_t servoPinoGarra = 7;
 const uint8_t servoPinoDir = 6;
@@ -38,14 +38,7 @@ void setup() {
   servoEsq.write(120);
   servoBase.write(0);
 
-  delay(300);
-
-  servoGarra.detach();
-  servoDir.detach();
-  servoEsq.detach();
-  servoBase.detach();
-
-  lastPotGarra = map(analogRead(potGarra), 0, 1023, 0, 180);
+  lastPotGarra = map(analogRead(potGarra), 0, 1023, 180, 150);
   lastPotEsq = map(analogRead(potEsq), 0, 1023, 0, 180);
   lastPotDir = map(analogRead(potDir), 0, 1023, 0, 180);
   lastPotBase = map(analogRead(potBase), 0, 1023, 0, 180);
@@ -56,50 +49,43 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
 
-  int potGarraValor = map(analogRead(potGarra), 0, 1023, 0, 180);
+  int potGarraValor = map(analogRead(potGarra), 0, 1023, 180, 150);
   int potEsqValor = map(analogRead(potEsq), 0, 1023, 0, 180);
   int potDirValor = map(analogRead(potDir), 0, 1023, 0, 180);
   int potBaseValor = map(analogRead(potBase), 0, 1023, 0, 180);
 
-  Serial.print(potGarraValor);
-  Serial.print(' ');
-  Serial.print(potEsqValor);
-  Serial.print(' ');
-  Serial.print(potDirValor);
-  Serial.print(' ');
-  Serial.println(potBaseValor);
+//  Serial.print("garra: ");
+//  Serial.print(potGarraValor);
+//  Serial.print("  esq: ");
+//  Serial.print(potEsqValor);
+//  Serial.print("  dir: ");
+//  Serial.print(potDirValor);
+//  Serial.print("  base: ");
+//  Serial.println(potBaseValor);
   delay(50);
 
   if(abs(lastPotGarra - potGarraValor) > tolerancia)
   {
     servoGarra.attach(servoPinoGarra);
     servoGarra.write(potGarraValor);
-    delay(300);
-    servoGarra.detach();
     lastPotGarra = potGarraValor;
   }
   else if(abs(lastPotDir - potDirValor) > tolerancia)
   {
     servoDir.attach(servoPinoDir);
     servoDir.write(potDirValor);
-    delay(300);
-    servoDir.detach();
     lastPotDir = potDirValor;
   }
   else if(abs(lastPotEsq - potEsqValor) > tolerancia)
   {
     servoEsq.attach(servoPinoEsq);
     servoEsq.write(potEsqValor);
-    delay(300);
-    servoEsq.detach();
     lastPotEsq = potEsqValor;
   }
   else if(abs(lastPotBase - potBaseValor) > tolerancia)
   {
     servoBase.attach(servoPinoBase);
     servoBase.write(potBaseValor);
-    delay(300);
-    servoBase.detach();
     lastPotBase = potBaseValor;
   }
 }
